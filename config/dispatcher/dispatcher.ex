@@ -22,27 +22,16 @@ defmodule Dispatcher do
   match "/distributions/*path" do
     Proxy.forward conn, path, "http://resource/distributions/"
   end
-  match "/catalog-records/*path" do
-    Proxy.forward conn, path, "http://resource/catalog-records/"
-  end
-  match "/concepts/*path" do
-    Proxy.forward conn, path, "http://resource/concepts/"
-  end
-  match "/concept-schemes/*path" do
-    Proxy.forward conn, path, "http://resource/concept-schemes/"
-  end
   match "/agents/*path" do
     Proxy.forward conn, path, "http://resource/agents/"
-  end
-  match "/formats/*path" do
-    Proxy.forward conn, path, "http://resource/formats/"
-  end
-  match "/pages/*path" do
-    Proxy.forward conn, path, "http://resource/pages/"
   end
   match "/publishers/*path" do
     Proxy.forward conn, path, "http://resource/publishers/"
   end
+  match "/graph/*path" do
+    Proxy.forward conn, path, "http://graph-identifier/"
+  end
+
 
 
   match _ do

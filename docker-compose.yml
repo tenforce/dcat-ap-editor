@@ -16,8 +16,18 @@ services:
     image: semtech/mu-dispatcher:1.1.0
     links:
       - resource:resource
+      - graph-identifier:graph
     volumes:
       - ./config/dispatcher:/config
+
+
+  # Identify the graphs a given resource lives in
+  graph-identifier:
+    image: terraformtestcontainerregistry.azurecr.io/oslo2/graph-identifier:1.0.0
+    depends_on:
+      - database
+    links:
+      - database:database
 
   # Cache
   resource:
@@ -25,6 +35,7 @@ services:
     environment:
       - CACHE_BACKEND=http://backend
 
+  # Convert JSON-API to SPARQL and viceversa
   backend:
     image: semtech/mu-cl-resources:1.15.0
     links:

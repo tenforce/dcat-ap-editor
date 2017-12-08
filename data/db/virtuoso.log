@@ -289,3 +289,17 @@
 14:15:57 Checkpoint finished, log reused
 14:15:59 HTTP/WebDAV server online at 8890
 14:15:59 Server online at 1111 (pid 1)
+
+		Fri Dec 08 2017
+14:40:35 OpenLink Virtuoso Universal Server
+14:40:35 Version 07.20.3215-pthreads for Linux as of Oct  3 2017
+14:40:35 uses parts of OpenSSL, PCRE, Html Tidy
+14:40:35 Database version 3126
+14:40:35 SQL Optimizer enabled (max 1000 layouts)
+14:40:36 Compiler unit is timed at 0.000162 msec
+14:40:37 Roll forward started
+14:40:37 Roll forward complete
+14:40:37 Checkpoint started
+14:40:37 Checkpoint finished, log reused
+14:40:39 HTTP/WebDAV server online at 8890
+14:40:39 Server online at 1111 (pid 1)
