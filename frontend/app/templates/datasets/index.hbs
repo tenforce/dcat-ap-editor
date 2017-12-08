@@ -17,12 +17,13 @@
           {{sortable-table-header attribute="landingPage" currentSort=sort}}
           {{sortable-table-header attribute="catalog" currentSort=sort}}
           {{sortable-table-header attribute="distributions" currentSort=sort}}
+          {{sortable-table-header attribute="graphs" currentSort=sort}}          
         </tr>
       </thead>
       <tbody>
         {{#each model as |item|}}
           {{#link-to "datasets.show" item tagName='tr' }}
-              <td>{{handle-attribute model=item attribute='id' classes='properties__data'}}</td>
+            <td>{{handle-attribute model=item attribute='id' classes='properties__data'}}</td>
             {{handle-attribute model=item attribute='title' tagName='td' classes='properties__data'}}
             {{handle-attribute model=item attribute='description' tagName='td' classes='properties__data'}}
             {{handle-attribute model=item attribute='issued' tagName='td' classes='properties__data'}}
@@ -33,6 +34,7 @@
             {{display-model-belongsto-relationship model=item.landingPage tagName='td' itemRoute='datasets.show' configuredLabel='stringRep'}}
             {{display-model-belongsto-relationship model=item.catalog tagName='td' itemRoute='catalogs.show' configuredLabel='stringRep'}}
             {{display-model-hasmany-relationship   model=item.distributions tagName='td' itemRoute='distributions.show' configuredLabel='stringRep'}}
+            {{graph-meta graphs=(await (get-graph item)) tagName="td" classes='properties__data'}}
           {{/link-to}}
         {{/each}}
       </tbody>
