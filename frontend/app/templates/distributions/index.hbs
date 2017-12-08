@@ -16,6 +16,7 @@
           {{sortable-table-header attribute="downloadUrl" currentSort=sort}}
           {{sortable-table-header attribute="mediaType" currentSort=sort}}
           {{sortable-table-header attribute="dataset" currentSort=sort}}
+          {{sortable-table-header attribute="graphs" currentSort=sort}}          
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,7 @@
             {{handle-attribute model=item attribute='downloadUrl' tagName='td' classes='properties__data'}}
             {{handle-attribute model=item attribute='mediaType' tagName='td' classes='properties__data'}}
             {{display-model-belongsto-relationship model=item.dataset tagName='td' itemRoute='datasets.show' configuredLabel='stringRep'}}
+            {{graph-meta graphs=(await (get-graph item)) tagName="td" classes='properties__data'}}
           {{/link-to}}
         {{/each}}
       </tbody>

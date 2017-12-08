@@ -62,6 +62,10 @@
         <td class="properties__label">{{t 'dataset'}}</td>
        {{display-model-belongsto-relationship model=model.dataset itemRoute='datasets.show' configuredLabel='stringRep' tagName="td" classes="properties__data"}}
       </tr>
+      <tr>
+        <td class="properties__label">{{t 'graphs'}}</td>
+        {{graph-meta graphs=(await (get-graph model)) tagName="td" classes='properties__data'}}
+      </tr>      
     </tbody>
   </table>
 </div>
