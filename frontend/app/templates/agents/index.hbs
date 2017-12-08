@@ -7,21 +7,16 @@
       <thead>
         <tr>
           <th class="properties__label">id</th>
-          
-
-          
-          {{sortable-table-header attribute="catalogs" currentSort=sort}}
-{{sortable-table-header attribute="datasets" currentSort=sort}}
+          {{sortable-table-header attribute="catalog" currentSort=sort}}
+          {{sortable-table-header attribute="graph" currentSort=sort}}
         </tr>
       </thead>
       <tbody>
         {{#each model as |item|}}
           {{#link-to "agents.show" item tagName='tr' }}
               <td>{{handle-attribute model=item attribute='id' classes='properties__data'}}</td>
-
-
-            {{display-model-hasmany-relationship   model=item.catalogs tagName='td' itemRoute='catalogs.show' configuredLabel='stringRep'}}
-            {{display-model-hasmany-relationship   model=item.datasets tagName='td' itemRoute='datasets.show' configuredLabel='stringRep'}}
+              {{display-model-belongsto-relationship model=item.catalog tagName='td' itemRoute='catalogs.show' configuredLabel='id'}}
+              {{graph-meta graphs=(await (get-graph item)) tagName="td" classes='properties__data'}}
           {{/link-to}}
         {{/each}}
       </tbody>

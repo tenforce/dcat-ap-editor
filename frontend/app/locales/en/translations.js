@@ -31,6 +31,8 @@ export default {
   "license": "licentie",
   "licenses": "licenties",
   "title": "titel",
+  "graph": "graph",
+  "graphs": "graphs",
   "description": "beschrijving",
   "datum": "datum",
   "type": "type",

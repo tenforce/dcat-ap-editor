@@ -26,11 +26,13 @@
         {{handle-attribute model=model attribute='id' tagName='td' classes='properties__data'}}
       </tr>
       {{!-- Creating rows for attributes depending on the type of property --}}
-
-
       <tr>
         <td class="properties__label">{{t 'catalog'}}</td>
         {{display-model-belongsto-relationship model=model.catalog itemRoute='catalogs.show' configuredLabel='id' tagName="td" classes="properties__data"}}
+      </tr>
+      <tr>
+        <td class="properties__label">{{t 'graphs'}}</td>
+        {{graph-meta graphs=(await (get-graph model)) tagName="td" classes='properties__data'}}
       </tr>
     </tbody>
   </table>
