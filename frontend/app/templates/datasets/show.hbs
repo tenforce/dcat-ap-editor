@@ -1,0 +1,71 @@
+{{!-- Page to show details of datasets --}}
+<div class="details">
+  <h2 class="title">{{t (humanize 'dataset details')}}</h2>
+
+  {{!--
+    Actions to go back to the list-view or edit dataset
+    if it's an editable application.
+  --}}
+  <div class="actions">
+    {{#link-to "datasets" class="btn back" title="Return to list" tagName='button'}}Return to the list{{/link-to}}
+    {{#link-to "datasets.edit" model class="btn edit" title="Edit this item" tagName="button"}}Edit{{/link-to}}
+  </div>
+
+  {{!-- Table to show details of dataset. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>{{t "Attribute"}}</th>
+        <th>{{t "Data"}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating row for id --}}
+      <tr>
+        <td class="properties__label">{{t "id"}}</td>
+        {{handle-attribute model=model attribute='id' tagName='td' classes='properties__data'}}
+      </tr>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+      <tr>
+        <td>{{t 'title'}}</td>
+        {{handle-attribute model=model attribute='title' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'description'}}</td>
+        {{handle-attribute model=model attribute='description' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'issued'}}</td>
+        {{handle-attribute model=model attribute='issued' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'modified'}}</td>
+        {{handle-attribute model=model attribute='modified' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'identifier'}}</td>
+        {{handle-attribute model=model attribute='identifier' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'keyword'}}</td>
+        <td>{{display-attribute-string-set model=model attribute='keyword' tagName='ul' innerTagName='li' classes='string-set'}}</td>
+      </tr>
+      <tr>
+      <td>{{t 'theme'}}</td>
+        {{handle-attribute model=model attribute='theme' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td class="properties__label">{{t 'landingPage'}}</td>
+        {{display-model-belongsto-relationship model=model.landingPage itemRoute='datasets.show' configuredLabel='stringRep' tagName='td' classes="properties__data"}}
+      </tr>
+      <tr>
+        <td class="properties__label">{{t 'catalog'}}</td>
+       {{display-model-belongsto-relationship model=model.catalog itemRoute='catalogs.show' configuredLabel='stringRep' tagName="td" classes="properties__data"}}
+      </tr>
+      <tr>
+        <td class="properties__label">{{t 'distributions'}}</td>
+       {{display-model-hasmany-relationship   model=model.distributions itemRoute='distributions.show' configuredLabel='stringRep' tagName="td" classes="properties__data"}}
+      </tr>
+    </tbody>
+  </table>
+</div>

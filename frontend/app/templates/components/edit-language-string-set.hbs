@@ -1,0 +1,14 @@
+{{!--
+  Configuration:
+    data: the language-string-set
+    tagName: tagName for the component
+    classes: css classes for the component
+ --}}
+{{#each view as |label index|}}
+  {{input value=label.content placeholder="Content" key-up=(action "changeLangStringSetContent" index) class="content"}}
+  {{input value=label.language placeholder="Lang" key-up=(action "changeLangStringSetLang" index) class="lang"}}
+  <button type="button" name="button" class="btn delete" title="Delete this item" {{action "deleteLabel" index}}>delete</button>
+{{/each}}
+<div class="create">
+  <button type="button" name="button" class="btn new" title="Create new item" {{action "createLabel"}}>create</button>
+</div>

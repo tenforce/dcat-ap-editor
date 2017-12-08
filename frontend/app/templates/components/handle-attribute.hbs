@@ -1,0 +1,35 @@
+{{!--
+  Let's you display and edit a basic attributes from a model.
+  It also supports booleans.
+
+  Do not use this component for: language-string-set, string-set.
+
+  If no model is passed, it can display a single attribute.
+  This is only available in non-edit mode.
+
+  Configuration:
+    model: the model to take the string-set from
+    attribute: attribute name of the string-set
+    boolean: if the attribute is a boolean
+    isImage: right now this is calculated by a regex depending on the value of the attribute
+    tagName: tagName for the component
+    classes: css classes for the component
+    editable: choose between an editable mode or a normal display mode.
+ --}}
+{{#if model}}
+  {{#if editable}}
+    {{#if boolean}}
+      {{input type="checkbox"  checked=(mut (get model attribute)) }}
+    {{else}}
+      {{input value=(get model attribute) placeholder=attribute}}
+    {{/if}}
+  {{else}}
+    {{#if boolean}}
+      {{input type="checkbox" disabled=(not editable) checked=(mut (get model attribute)) }}
+    {{else}}
+      {{t (get model attribute)}}
+    {{/if}}
+  {{/if}}
+{{else}}
+  {{t attribute}}
+{{/if}}

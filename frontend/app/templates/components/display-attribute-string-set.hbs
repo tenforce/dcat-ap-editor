@@ -1,0 +1,11 @@
+{{!--
+  Displays a menu list from the existing routes. Only the routes, that have a .index
+  subroute will be displayed, as this addon generates resources like that.
+ --}}
+{{#each (get model attribute) as |label|}}
+  {{#if lang}}
+    {{display-lang-attribute model=label tagName=innerTagName}}
+  {{else}}
+    {{handle-attribute attribute=label tagName=innerTagName}}
+  {{/if}}
+{{/each}}

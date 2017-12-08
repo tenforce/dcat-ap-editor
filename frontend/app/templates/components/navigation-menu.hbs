@@ -1,0 +1,13 @@
+{{!--
+  Let's you edit a boolean attribute from a model.
+
+  Configuration:
+    model: the model to take the string-set from
+    attribute: attribute name of the string-set
+    tagName: tagName for the component
+    classes: css classes for the component
+ --}}
+
+{{#power-select placeholder="Model" options=menus selected=currentRoute onchange=(action 'goToPage') as |menu|}}
+  {{humanize menu}}
+{{/power-select}}

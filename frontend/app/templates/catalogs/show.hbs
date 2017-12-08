@@ -1,0 +1,63 @@
+{{!-- Page to show details of catalogs --}}
+<div class="details">
+  <h2 class="title">{{t (humanize 'catalog details')}}</h2>
+
+  {{!--
+    Actions to go back to the list-view or edit catalog
+    if it's an editable application.
+  --}}
+  <div class="actions">
+    {{#link-to "catalogs" class="btn back" title="Return to list" tagName='button'}}Return to the list{{/link-to}}
+    {{#link-to "catalogs.edit" model class="btn edit" title="Edit this item" tagName="button"}}Edit{{/link-to}}
+  </div>
+
+  {{!-- Table to show details of catalog. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>{{t "Attribute"}}</th>
+        <th>{{t "Data"}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating row for id --}}
+      <tr>
+        <td class="properties__label">{{t "id"}}</td>
+        {{handle-attribute model=model attribute='id' tagName='td' classes='properties__data'}}
+      </tr>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+            <tr>
+        <td>{{t 'title'}}</td>
+        {{handle-attribute model=model attribute='title' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'description'}}</td>
+        {{handle-attribute model=model attribute='description' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'issued'}}</td>
+        {{handle-attribute model=model attribute='issued' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'modified'}}</td>
+        {{handle-attribute model=model attribute='modified' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'language'}}</td>
+        {{handle-attribute model=model attribute='language' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td>{{t 'license'}}</td>
+        {{handle-attribute model=model attribute='license' tagName='td' classes='properties__data'}}
+      </tr>
+      <tr>
+        <td class="properties__label">{{t 'publisher'}}</td>
+       {{display-model-belongsto-relationship model=model.publisher itemRoute='agents.show' configuredLabel='stringRep' tagName="td" classes="properties__data"}}
+      </tr>
+      <tr>
+        <td class="properties__label">{{t 'datasets'}}</td>
+       {{display-model-hasmany-relationship model=model.datasets itemRoute='datasets.show' configuredLabel='stringRep' tagName="td" classes="properties__data"}}
+      </tr>
+    </tbody>
+  </table>
+</div>

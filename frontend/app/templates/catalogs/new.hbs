@@ -1,0 +1,66 @@
+{{!-- Page to create a new catalog --}}
+<div class="new">
+  <h2 class="title">{{t (humanize 'New catalog')}}</h2>
+
+  {{!--
+    Actions to save new catalog
+    or delete new catalog.
+  --}}
+  <div class="actions">
+    <button type="button" class="btn save" title="Save new catalog" {{action 'save' model}}>Save</button>
+    <button type="button" class="btn cancel" title="Cancel" {{action 'cancel' model}}>Cancel</button>
+  </div>
+
+  {{!-- Table to show details of catalog. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+            <tr>
+        <td>title</td>
+<td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>description</td>
+<td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>issued</td>
+<td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>modified</td>
+<td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>language</td>
+<td align='middle'>{{handle-attribute model=model attribute='language' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>license</td>
+<td align='middle'>{{handle-attribute model=model attribute='license' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>rights</td>
+<td align='middle'>{{handle-attribute model=model attribute='rights' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>spatial</td>
+<td align='middle'>{{handle-attribute model=model attribute='spatial' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>homepage</td>
+<td align='middle'>{{handle-attribute model=model attribute='homepage' editable=true}}</td>
+      </tr>
+      <tr><td>publisher</td><td align='middle'>{{edit-belongs-to relName=model.publisher relType="publisher"}}</td></tr>
+      <tr><td>themeTaxonomy</td><td align='middle'>{{edit-belongs-to relName=model.themeTaxonomy relType="concept-scheme"}}</td></tr>
+      <tr><td>record</td><td align='middle'>{{edit-belongs-to relName=model.record relType="catalog-record"}}</td></tr>
+      <tr><td>datasets</td><td align='middle'>{{edit-has-many relName=model.datasets relType="dataset"}}</td></tr>
+    </tbody>
+  </table>
+</div>

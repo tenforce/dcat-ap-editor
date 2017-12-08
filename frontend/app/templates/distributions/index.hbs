@@ -1,0 +1,48 @@
+{{!-- Page to list distributions --}}
+<div class="content">
+  <h2 class="title">{{t (humanize 'distributions')}}</h2>
+  <div class="actions">{{#link-to "distributions.new" class="btn new" title="Create new item" tagName="button" }}Create{{/link-to}}</div>
+  {{#if model}}
+    <table>
+      <thead>
+        <tr>
+          <th class="properties__label">id</th>
+          {{sortable-table-header attribute="title" currentSort=sort}}
+          {{sortable-table-header attribute="description" currentSort=sort}}
+          {{sortable-table-header attribute="issued" currentSort=sort}}
+          {{sortable-table-header attribute="modified" currentSort=sort}}
+          {{sortable-table-header attribute="license" currentSort=sort}}
+          {{sortable-table-header attribute="accessUrl" currentSort=sort}}
+          {{sortable-table-header attribute="downloadUrl" currentSort=sort}}
+          {{sortable-table-header attribute="mediaType" currentSort=sort}}
+          {{sortable-table-header attribute="dataset" currentSort=sort}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |item|}}
+          {{#link-to "distributions.show" item tagName='tr' }}
+              <td>{{handle-attribute model=item attribute='id' classes='properties__data'}}</td>
+            {{handle-attribute model=item attribute='title' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='description' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='issued' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='modified' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='license' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='accessUrl' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='downloadUrl' tagName='td' classes='properties__data'}}
+            {{handle-attribute model=item attribute='mediaType' tagName='td' classes='properties__data'}}
+            {{display-model-belongsto-relationship model=item.dataset tagName='td' itemRoute='datasets.show' configuredLabel='stringRep'}}
+          {{/link-to}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{#if model.meta.pagination}}
+      {{pagination-component page=page numberOfItems=model.length total=model.meta.count links=model.meta.pagination}}
+    {{/if}}
+  {{else}}
+    <div class="empty">
+      No {{t (humanize 'distributions')}} in the database.
+      Click on the <i class="fa fa-plus" aria-hidden="true"></i> button to create a new {{t (humanize "distribution")}}.
+    </div>
+  {{/if}}
+</div>

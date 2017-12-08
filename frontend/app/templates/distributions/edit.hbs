@@ -1,0 +1,64 @@
+{{!-- Page to edit distribution --}}
+{{#with (changeset model skipValidate=true) as |changeset|}}
+<div class="edit">
+  <h2 class="title">{{t (humanize 'Edit distribution')}}</h2>
+
+  {{!--
+    Actions to save or cancel changes;
+    or delete distribution.
+  --}}
+  <div class="actions">
+    <button type="button" class="btn save" title="Save new distribution" {{action 'save' changeset model}}>Save</button>
+    <button type="button" class="btn cancel" title="Cancel" {{action 'cancel' changeset model}}>Cancel</button>
+    <button type="button" class="btn delete" title="Delete this item" {{action 'delete' changeset model}}>Delete</button>
+  </div>
+
+  {{!-- Table to show details of distribution. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+      <tr>
+        <td>{{t 'title'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='title' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'description'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='description' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'issued'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='issued' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'modified'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='modified' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'license'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='license' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'accessUrl'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='accessUrl' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'downloadUrl'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='downloadUrl' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'mediaType'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='mediaType' editable=true}}</td>
+      </tr>
+
+      <tr><td>{{t 'dataset'}}</td><td align='middle'>{{edit-belongs-to relName=changeset.dataset relType="dataset"}}</td></tr>
+
+    </tbody>
+  </table>
+</div>
+{{/with}}

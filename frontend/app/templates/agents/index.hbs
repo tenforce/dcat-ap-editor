@@ -1,0 +1,39 @@
+{{!-- Page to list agents --}}
+<div class="content">
+  <h2 class="title">{{t (humanize 'agents')}}</h2>
+  <div class="actions">{{#link-to "agents.new" class="btn new" title="Create new item" tagName="button" }}Create{{/link-to}}</div>
+  {{#if model}}
+    <table>
+      <thead>
+        <tr>
+          <th class="properties__label">id</th>
+          
+
+          
+          {{sortable-table-header attribute="catalogs" currentSort=sort}}
+{{sortable-table-header attribute="datasets" currentSort=sort}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |item|}}
+          {{#link-to "agents.show" item tagName='tr' }}
+              <td>{{handle-attribute model=item attribute='id' classes='properties__data'}}</td>
+
+
+            {{display-model-hasmany-relationship   model=item.catalogs tagName='td' itemRoute='catalogs.show' configuredLabel='stringRep'}}
+            {{display-model-hasmany-relationship   model=item.datasets tagName='td' itemRoute='datasets.show' configuredLabel='stringRep'}}
+          {{/link-to}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{#if model.meta.pagination}}
+      {{pagination-component page=page numberOfItems=model.length total=model.meta.count links=model.meta.pagination}}
+    {{/if}}
+  {{else}}
+    <div class="empty">
+      No {{t (humanize 'agents')}} in the database.
+      Click on the <i class="fa fa-plus" aria-hidden="true"></i> button to create a new {{t (humanize "agent")}}.
+    </div>
+  {{/if}}
+</div>

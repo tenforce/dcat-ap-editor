@@ -1,0 +1,12 @@
+<ul class="link-list">
+{{#if (is-pending model)}}
+  <div class="loading">
+    <i class="fa fa-spinner fa-spin"></i>
+    <p>loading...</p>
+  </div>
+{{else}}
+  {{#each (await model) as |resource|}}
+    <li>{{#link-to itemRoute resource class="link--icon--caret"}}{{get resource configuredLabel}}{{/link-to}}</li>
+  {{/each}}
+{{/if}}
+</ul>

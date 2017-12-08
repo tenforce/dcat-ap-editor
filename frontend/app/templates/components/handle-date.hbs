@@ -1,0 +1,26 @@
+{{!--
+  Let's you display and edit dates and datetimes
+
+  Configuration:
+    model: the model to take the string-set from
+    attribute: attribute name of the string-set
+    tagName: tagName for the component
+    classes: css classes for the component
+    editable: choose between an editable mode or a normal display mode.
+ --}}
+{{#if editable}}
+  {{date-time-picker
+  (get model attribute)
+  class="display-inline"
+  options=(hash
+    className="display-inline"
+    inline=true
+    timepicker=timePicker
+    step=timeSteps
+    scrollMonth=false
+  )
+  action=(action (mut (get model attribute)))
+  }}
+{{else}}
+  {{t (get model attribute)}}
+{{/if}}

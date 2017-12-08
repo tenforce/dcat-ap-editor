@@ -1,0 +1,30 @@
+{{!--
+  This component displays a pagination actions, if there are more than 20 results.
+  If in the json-api call the number of results is added, then it will also display the number of displayed items: x-y (z)
+
+  This code is based on the ember-data-table's number pagination component
+  https://github.com/mu-semtech/ember-data-table/blob/master/addon/templates/components/number-pagination.hbs
+ --}}
+
+{{#if hasMultiplePages}}
+  <div class="pagination-controls">
+    <button type="button" class="btn first" disabled= {{isFirstPage}} {{action "changePage" links.first}} title="first page">first page</button>
+    <button type="button" class="btn previous" disabled= {{isFirstPage}} {{action "changePage" links.prev}} title="previous page">previous page</button>
+    {{input  value=goToPage placeholder=currentPage  }}
+    <button type="button" class="btn goto" disabled= {{not isValidPageNumber}} {{action "changePage" goToPage}} title="go to page">go to page</button>
+    <button type="button" class="btn next" disabled= {{isLastPage}} {{action "changePage" links.next}} title="next page">next page</button>
+    <button type="button" class="btn last" disabled= {{isLastPage}} {{action "changePage" links.last}} title="last page">last page</button>
+  </div>
+{{/if}}
+{{#if hasMultiplePages}}
+    <div class="item-calculator">
+      Page {{currentPage}} ({{numberOfPages}})
+    </div>
+{{/if}}
+{{#if total}}
+  {{#if size}}
+    <div class="item-calculator">
+      {{startItem}} - {{endItem}} ({{total}})
+    </div>
+  {{/if}}
+{{/if}}

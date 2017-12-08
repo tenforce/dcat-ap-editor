@@ -1,0 +1,30 @@
+{{!-- Page to create a new agent --}}
+<div class="new">
+  <h2 class="title">{{t (humanize 'New agent')}}</h2>
+
+  {{!--
+    Actions to save new agent
+    or delete new agent.
+  --}}
+  <div class="actions">
+    <button type="button" class="btn save" title="Save new agent" {{action 'save' model}}>Save</button>
+    <button type="button" class="btn cancel" title="Cancel" {{action 'cancel' model}}>Cancel</button>
+  </div>
+
+  {{!-- Table to show details of agent. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+      
+      
+      <tr><td>catalogs</td><td align='middle'>{{edit-has-many relName=model.catalogs relType="catalog"}}</td></tr>
+      <tr><td>datasets</td><td align='middle'>{{edit-has-many relName=model.datasets relType="dataset"}}</td></tr>
+    </tbody>
+  </table>
+</div>

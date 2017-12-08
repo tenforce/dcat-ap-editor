@@ -1,0 +1,10 @@
+<span>
+{{#if (is-pending model)}}
+  <div class="loading">
+    <i class="fa fa-spinner fa-spin"></i>
+    <p>loading...</p>
+  </div>
+{{else}}
+  {{#link-to itemRoute model.id}}{{get (await model) configuredLabel}}{{/link-to}}
+{{/if}}
+</span>

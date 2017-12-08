@@ -1,0 +1,11 @@
+{{#power-select
+  allowClear=true
+  placeholder=relType
+  options=options
+  search=(action "search" relType)
+  selected=relName
+  onchange=(action (mut relName))
+  as |option|
+}}
+  {{option.stringRep}}
+{{/power-select}}

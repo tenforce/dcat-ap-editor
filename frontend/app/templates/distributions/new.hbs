@@ -1,0 +1,69 @@
+{{!-- Page to create a new distribution --}}
+<div class="new">
+  <h2 class="title">{{t (humanize 'New distribution')}}</h2>
+
+  {{!--
+    Actions to save new distribution
+    or delete new distribution.
+  --}}
+  <div class="actions">
+    <button type="button" class="btn save" title="Save new distribution" {{action 'save' model}}>Save</button>
+    <button type="button" class="btn cancel" title="Cancel" {{action 'cancel' model}}>Cancel</button>
+  </div>
+
+  {{!-- Table to show details of distribution. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+            <tr>
+        <td>title</td>
+<td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>description</td>
+<td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>issued</td>
+<td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>modified</td>
+<td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>license</td>
+<td align='middle'>{{handle-attribute model=model attribute='license' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>rights</td>
+<td align='middle'>{{handle-attribute model=model attribute='rights' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>accessUrl</td>
+<td align='middle'>{{handle-attribute model=model attribute='accessUrl' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>downloadUrl</td>
+<td align='middle'>{{handle-attribute model=model attribute='downloadUrl' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>mediaType</td>
+<td align='middle'>{{handle-attribute model=model attribute='mediaType' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>byteSize</td>
+<td align='middle'>{{handle-attribute model=model attribute='byteSize' editable=true}}</td>
+      </tr>
+      <tr><td>dataset</td><td align='middle'>{{edit-belongs-to relName=model.dataset relType="dataset"}}</td></tr>
+      <tr><td>format</td><td align='middle'>{{edit-belongs-to relName=model.format relType="format"}}</td></tr>
+      
+    </tbody>
+  </table>
+</div>

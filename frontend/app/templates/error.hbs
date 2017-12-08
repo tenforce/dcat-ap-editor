@@ -1,0 +1,18 @@
+{{!-- Basic view for errors. --}}
+<div class="error">
+  <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+  <p>An error occurred.</p>
+
+  {{#if model.showError}}
+    <div class="pointer" {{action "toggleShowError" model}}>
+      <p>Click here to hide the error message.</p>
+      <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+    </div>
+    {{model}}
+  {{else}}
+    <div class="pointer" {{action "toggleShowError" model}}>
+      <p>Click here to show the error message.</p>
+      <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+    </div>
+  {{/if}}
+</div>

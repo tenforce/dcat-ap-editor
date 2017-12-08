@@ -1,0 +1,62 @@
+{{!-- Page to edit dataset --}}
+{{#with (changeset model skipValidate=true) as |changeset|}}
+<div class="edit">
+  <h2 class="title">{{t (humanize 'Edit dataset')}}</h2>
+
+  {{!--
+    Actions to save or cancel changes;
+    or delete dataset.
+  --}}
+  <div class="actions">
+    <button type="button" class="btn save" title="Save new dataset" {{action 'save' changeset model}}>Save</button>
+    <button type="button" class="btn cancel" title="Cancel" {{action 'cancel' changeset model}}>Cancel</button>
+    <button type="button" class="btn delete" title="Delete this item" {{action 'delete' changeset model}}>Delete</button>
+  </div>
+
+  {{!-- Table to show details of dataset. --}}
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Creating rows for attributes depending on the type of property --}}
+      <tr>
+        <td>{{t 'title'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='title' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'description'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='description' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'issued'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='issued' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'modified'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='modified' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'identifier'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='identifier' editable=true}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'keyword'}}</td>
+        <td align='middle'>{{edit-string-set data=changeset.keyword tagName='ul' classes='string-set'}}</td>
+      </tr>
+      <tr>
+        <td>{{t 'theme'}}</td>
+        <td align='middle'>{{handle-attribute model=changeset attribute='theme' editable=true}}</td>
+      </tr>
+
+      <tr><td>{{t 'landingPage'}}</td><td align='middle'>{{edit-belongs-to relName=changeset.landingPage relType="dataset"}}</td></tr>
+      <tr><td>{{t 'catalogs'}}</td><td align='middle'>{{edit-belongs-to relName=changeset.catalog relType="catalog"}}</td></tr>
+      <tr><td>{{t 'distributions'}}</td><td align='middle'>{{edit-has-many relName=changeset.distributions relType="distribution"}}</td></tr>
+
+    </tbody>
+  </table>
+</div>
+{{/with}}

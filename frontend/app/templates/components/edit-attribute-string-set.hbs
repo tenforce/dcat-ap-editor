@@ -1,0 +1,24 @@
+{{!--
+  Edit view for a string-set from a model depending if it has language or not.
+  Also has option to delete and create elements in the string-set.
+
+  Configuration:
+    model: the model to take the string-set from
+    attribute: attribute name of the string-set
+    tagName: tagName for the component
+    classes: css classes for the component
+    lang: true, if it is a language-string-set
+ --}}
+{{#each (get model attribute) as |label index|}}
+  {{#if lang}}
+    {{input value=label.content placeholder="Content" class="content"}}
+    {{input value=label.language placeholder="Lang" class="lang"}}
+    <button type="button" name="button" class="btn delete" title="Delete this item" {{action "deleteLabel" index}}>delete</button>
+  {{else}}
+    {{input value=label placeholder="Content" key-up=(action "changeStringSetElement" index) class="with-delete"}}
+    <button type="button" name="button" class="btn delete" title="Delete this item" {{action "deleteLabel" index}}>delete</button>
+  {{/if}}
+{{/each}}
+<div class="create">
+  <button type="button" name="button" class="btn new" title="Create new item" {{action "createLabel"}}>create</button>
+</div>
