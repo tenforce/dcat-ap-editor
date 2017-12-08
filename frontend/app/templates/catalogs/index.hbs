@@ -15,6 +15,7 @@
           {{sortable-table-header attribute="license" currentSort=sort}}
           {{sortable-table-header attribute="publisher" currentSort=sort}}
           {{sortable-table-header attribute="datasets" currentSort=sort}}
+          {{sortable-table-header attribute="graphs" currentSort=sort}}
         </tr>
       </thead>
       <tbody>
@@ -29,6 +30,7 @@
             {{handle-attribute model=item attribute='license' tagName='td' classes='properties__data'}}
             {{display-model-belongsto-relationship model=item.publisher tagName='td' itemRoute='agents.show' configuredLabel='id'}}
             {{display-model-hasmany-relationship   model=item.datasets tagName='td' itemRoute='datasets.show' configuredLabel='id'}}
+            {{graph-meta graphs=(await (get-graph item)) tagName="td" classes='properties__data'}}
           {{/link-to}}
         {{/each}}
       </tbody>
