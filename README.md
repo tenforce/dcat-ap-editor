@@ -2,13 +2,13 @@
 
 # Introduction
 
-A [DCAT-AP](https://www.w3.org/TR/vocab-dcat/) editor based on [mu.semte.ch](https://mu.semte.ch/) and [EmberJS](https://www.emberjs.com/). 
+A [DCAT-AP](https://www.w3.org/TR/vocab-dcat/) editor based on [mu.semte.ch](https://mu.semte.ch/) and [EmberJS](https://www.emberjs.com/).
 
 # Architecture
 
 The project is based on the [mu-semtech](https://mu.semte.ch/) microservices architecture. Basic architecture is as follows.
 
-![dcat-arch](dcat-arch.png)
+![dcat-arch](dcat-arch1.png)
 
 # Installation & Usage
 

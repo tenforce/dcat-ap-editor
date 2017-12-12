@@ -7,21 +7,23 @@ export default Ember.Route.extend({
   },
   actions: {
     save(model) {
-      var self = this;
-      return model.save().then( function() {
-        self.transitionTo( "distributions");
-      }).catch( function() {
-        alert("Creation of distribution failed");
-      });
+      return model.save()
+              .then(() => {
+                this.transitionTo( "distributions");
+              })
+              .catch(() => {
+                alert("Creation of distribution failed");
+              });
     },
     cancel(model) {
-      var self = this;
       model.rollbackAttributes();
-      return model.save().then( function() {
-        self.transitionTo( "distributions");
-      }).catch( function() {
-        alert("Cancelling creation of distribution failed");
-      });
+      return model.save()
+              .then(() => {
+                this.transitionTo( "distributions");
+              })
+              .catch( function() {
+                alert("Cancelling creation of distribution failed");
+              });
     }
   }
 });

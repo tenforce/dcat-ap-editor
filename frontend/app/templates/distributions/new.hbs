@@ -21,49 +21,41 @@
     </thead>
     <tbody>
       {{!-- Creating rows for attributes depending on the type of property --}}
-            <tr>
-        <td>title</td>
-<td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
+      <tr>
+        <td>{{t 'title'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
       </tr>
       <tr>
-        <td>description</td>
-<td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
+        <td>{{t 'description'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
       </tr>
       <tr>
-        <td>issued</td>
-<td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
+        <td>{{t 'issued'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
       </tr>
       <tr>
-        <td>modified</td>
-<td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
+        <td>{{t 'modified'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
       </tr>
       <tr>
-        <td>license</td>
-<td align='middle'>{{handle-attribute model=model attribute='license' editable=true}}</td>
+        <td>{{t 'license'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='license' editable=true}}</td>
       </tr>
       <tr>
-        <td>rights</td>
-<td align='middle'>{{handle-attribute model=model attribute='rights' editable=true}}</td>
+        <td>{{t 'accessUrl'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='accessUrl' editable=true}}</td>
       </tr>
       <tr>
-        <td>accessUrl</td>
-<td align='middle'>{{handle-attribute model=model attribute='accessUrl' editable=true}}</td>
+        <td>{{t 'downloadUrl'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='downloadUrl' editable=true}}</td>
       </tr>
       <tr>
-        <td>downloadUrl</td>
-<td align='middle'>{{handle-attribute model=model attribute='downloadUrl' editable=true}}</td>
+        <td>{{t 'mediaType'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='mediaType' editable=true}}</td>
       </tr>
-      <tr>
-        <td>mediaType</td>
-<td align='middle'>{{handle-attribute model=model attribute='mediaType' editable=true}}</td>
-      </tr>
-      <tr>
-        <td>byteSize</td>
-<td align='middle'>{{handle-attribute model=model attribute='byteSize' editable=true}}</td>
-      </tr>
-      <tr><td>dataset</td><td align='middle'>{{edit-belongs-to relName=model.dataset relType="dataset"}}</td></tr>
-      <tr><td>format</td><td align='middle'>{{edit-belongs-to relName=model.format relType="format"}}</td></tr>
-      
+
+      <tr><td>{{t 'dataset'}}</td><td align='middle'>{{edit-belongs-to relName=model.dataset relType="dataset"}}</td></tr>
+
     </tbody>
   </table>
 </div>

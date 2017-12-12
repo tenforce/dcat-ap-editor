@@ -7,21 +7,23 @@ export default Ember.Route.extend({
   },
   actions: {
     save(model) {
-      var self = this;
-      return model.save().then( function() {
-        self.transitionTo( "datasets");
-      }).catch( function() {
-        alert("Creation of dataset failed");
-      });
+      return model.save()
+              .then(() => {
+                this.transitionTo( "datasets");
+              })
+              .catch( function() {
+                alert("Creation of dataset failed");
+              });
     },
     cancel(model) {
-      var self = this;
       model.rollbackAttributes();
-      return model.save().then( function() {
-        self.transitionTo( "datasets");
-      }).catch( function() {
-        alert("Cancelling creation of dataset failed");
-      });
+      return model.save()
+              .then(() => {
+                this.transitionTo( "datasets");
+              })
+              .catch( function() {
+                alert("Cancelling creation of dataset failed");
+              });
     }
   }
 });

@@ -21,46 +21,32 @@
     </thead>
     <tbody>
       {{!-- Creating rows for attributes depending on the type of property --}}
-            <tr>
-        <td>title</td>
-<td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
+      <tr>
+        <td>{{t 'title'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
       </tr>
       <tr>
-        <td>description</td>
-<td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
+        <td>{{t 'description'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
       </tr>
       <tr>
-        <td>issued</td>
-<td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
+        <td>{{t 'issued'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
       </tr>
       <tr>
-        <td>modified</td>
-<td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
+        <td>{{t 'modified'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
       </tr>
       <tr>
-        <td>language</td>
-<td align='middle'>{{handle-attribute model=model attribute='language' editable=true}}</td>
+        <td>{{t 'language'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='language' editable=true}}</td>
       </tr>
       <tr>
-        <td>license</td>
-<td align='middle'>{{handle-attribute model=model attribute='license' editable=true}}</td>
+        <td>{{t 'license'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='license' editable=true}}</td>
       </tr>
-      <tr>
-        <td>rights</td>
-<td align='middle'>{{handle-attribute model=model attribute='rights' editable=true}}</td>
-      </tr>
-      <tr>
-        <td>spatial</td>
-<td align='middle'>{{handle-attribute model=model attribute='spatial' editable=true}}</td>
-      </tr>
-      <tr>
-        <td>homepage</td>
-<td align='middle'>{{handle-attribute model=model attribute='homepage' editable=true}}</td>
-      </tr>
-      <tr><td>publisher</td><td align='middle'>{{edit-belongs-to relName=model.publisher relType="publisher"}}</td></tr>
-      <tr><td>themeTaxonomy</td><td align='middle'>{{edit-belongs-to relName=model.themeTaxonomy relType="concept-scheme"}}</td></tr>
-      <tr><td>record</td><td align='middle'>{{edit-belongs-to relName=model.record relType="catalog-record"}}</td></tr>
-      <tr><td>datasets</td><td align='middle'>{{edit-has-many relName=model.datasets relType="dataset"}}</td></tr>
+      <tr><td>{{t 'publisher'}}</td><td align='middle'>{{edit-belongs-to relName=model.publisher relType="agent"}}</td></tr>
+      <tr><td>{{t 'datasets'}}</td><td align='middle'>{{edit-has-many relName=model.datasets relType="dataset"}}</td></tr>
     </tbody>
   </table>
 </div>

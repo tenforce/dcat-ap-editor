@@ -21,10 +21,8 @@
     </thead>
     <tbody>
       {{!-- Creating rows for attributes depending on the type of property --}}
-      
-      
-      <tr><td>catalogs</td><td align='middle'>{{edit-has-many relName=model.catalogs relType="catalog"}}</td></tr>
-      <tr><td>datasets</td><td align='middle'>{{edit-has-many relName=model.datasets relType="dataset"}}</td></tr>
+
+      <tr><td>{{t 'catalog'}}</td><td align='middle'>{{edit-belongs-to relName=model.catalog relType="catalog"}}</td></tr>
     </tbody>
   </table>
 </div>

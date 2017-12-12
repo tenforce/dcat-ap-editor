@@ -21,55 +21,38 @@
     </thead>
     <tbody>
       {{!-- Creating rows for attributes depending on the type of property --}}
-            <tr>
-        <td>title</td>
-<td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
+      <tr>
+        <td>{{t 'title'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='title' editable=true}}</td>
       </tr>
       <tr>
-        <td>description</td>
-<td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
+        <td>{{t 'description'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='description' editable=true}}</td>
       </tr>
       <tr>
-        <td>issued</td>
-<td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
+        <td>{{t 'issued'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='issued' editable=true}}</td>
       </tr>
       <tr>
-        <td>modified</td>
-<td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
+        <td>{{t 'modified'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='modified' editable=true}}</td>
       </tr>
       <tr>
-        <td>identifier</td>
-<td align='middle'>{{handle-attribute model=model attribute='identifier' editable=true}}</td>
+        <td>{{t 'identifier'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='identifier' editable=true}}</td>
       </tr>
       <tr>
         <td>{{t 'keyword'}}</td>
         <td align='middle'>{{edit-string-set data=model.keyword tagName='ul' classes='string-set'}}</td>
       </tr>
       <tr>
-        <td>language</td>
-<td align='middle'>{{handle-attribute model=model attribute='language' editable=true}}</td>
+        <td>{{t 'theme'}}</td>
+        <td align='middle'>{{handle-attribute model=model attribute='theme' editable=true}}</td>
       </tr>
-      <tr>
-        <td>contactPoint</td>
-<td align='middle'>{{handle-attribute model=model attribute='contactPoint' editable=true}}</td>
-      </tr>
-      <tr>
-        <td>temporal</td>
-<td align='middle'>{{handle-attribute model=model attribute='temporal' editable=true}}</td>
-      </tr>
-      <tr>
-        <td>accrualPeriodicity</td>
-<td align='middle'>{{handle-attribute model=model attribute='accrualPeriodicity' editable=true}}</td>
-      </tr>
-      <tr>
-        <td>landingPage</td>
-<td align='middle'>{{handle-attribute model=model attribute='landingPage' editable=true}}</td>
-      </tr>
-      <tr><td>publisher</td><td align='middle'>{{edit-belongs-to relName=model.publisher relType="publisher"}}</td></tr>
-      <tr><td>catalog</td><td align='middle'>{{edit-belongs-to relName=model.catalog relType="catalog"}}</td></tr>
-      <tr><td>primaryTopic</td><td align='middle'>{{edit-belongs-to relName=model.primaryTopic relType="catalog-record"}}</td></tr>
-      <tr><td>themes</td><td align='middle'>{{edit-has-many relName=model.themes relType="concept"}}</td></tr>
-      <tr><td>distributions</td><td align='middle'>{{edit-has-many relName=model.distributions relType="distribution"}}</td></tr>
+
+      <tr><td>{{t 'landingPage'}}</td><td align='middle'>{{edit-belongs-to relName=model.landingPage relType="dataset"}}</td></tr>
+      <tr><td>{{t 'catalogs'}}</td><td align='middle'>{{edit-belongs-to relName=model.catalog relType="catalog"}}</td></tr>
+      <tr><td>{{t 'distributions'}}</td><td align='middle'>{{edit-has-many relName=model.distributions relType="distribution"}}</td></tr>
     </tbody>
   </table>
 </div>
