@@ -16,6 +16,6 @@ To have the environment running only need to follow this set of steps:
 
 * `git clone <repo_url>`
 * `cd <repo_url>`
-* `docker-compose-up`
+* `docker-compose up`
 
 That's it! just be sure you have **docker-compose** installed. Then visit `http://localhost` and you will see the welcome page.
